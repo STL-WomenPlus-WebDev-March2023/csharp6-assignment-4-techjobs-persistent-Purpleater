@@ -14,8 +14,6 @@ namespace TechJobs6Persistent.Models
             Location = location;
         }
 
-        public Employer()
-        {
-        }
+
     }
 }

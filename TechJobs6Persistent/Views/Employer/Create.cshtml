@@ -4,18 +4,23 @@
 
     <div class="form-group">
         <label>Employer Name</label>
-        <input />
+        <input name="Name" value="@Model.Name"/>
     </div>
 
     <br />
 
     <div class="form-group">
         <label>Employer Location</label>
-        <input />
+        <input name="Location" value="@Model.Location"/>
     </div>
 
     <br />
 
     <input type="submit" value="Add Employer" />
+
+    @if (Model.isError)
+    {
+        <p>@Model.Message</p>
+    }
 
 </form>

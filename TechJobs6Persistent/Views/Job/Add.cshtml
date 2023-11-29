@@ -3,13 +3,24 @@
 
 <h1>Add Job</h1>
 
+
 <form asp-controller="Job" asp-action="Add" method="post">
+
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" />
+        <input class="form-control" value="@Model.Name"/>
+        <label>Employer Name</label>
+        <select name=employerSelect>
+            @foreach (var employer in Model)
+            {
+                <option value=@employer.Id>@employer.Name</option>
+            }
+        </select>
+        <p>Don't see your employer on this list? You can add them <a asp-controller="Employer" , asp-action="Create"> here</a>!</p>
         <span></span>
     </div>
     <br />
 
     <input type="submit" value="Add Job" />
+
 </form>
