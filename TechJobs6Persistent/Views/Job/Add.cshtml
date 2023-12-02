@@ -1,5 +1,5 @@
 ﻿@using TechJobs6Persistent.ViewModels
-
+@model AddJobViewModel 
 
 <h1>Add Job</h1>
 
@@ -8,16 +8,20 @@
 
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" value="@Model.Name"/>
+        <input class="form-control" value="@Model.Name" name="Name"/>
         <label>Employer Name</label>
-        <select name=employerSelect>
-            @foreach (var employer in Model)
+        <select name=EmployerId>
+            @foreach (var employer in Model.SelectListItem)
             {
                 <option value=@employer.Id>@employer.Name</option>
             }
         </select>
         <p>Don't see your employer on this list? You can add them <a asp-controller="Employer" , asp-action="Create"> here</a>!</p>
         <span></span>
+        @if (Model.isError)
+        {
+            <p>@Model.Message</p>
+        }
     </div>
     <br />
 

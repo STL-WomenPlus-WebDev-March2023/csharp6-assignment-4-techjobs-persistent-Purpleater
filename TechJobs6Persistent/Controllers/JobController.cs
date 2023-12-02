@@ -46,8 +46,20 @@ namespace TechJobs6Persistent.Controllers
         [HttpPost]
         public IActionResult Add(AddJobViewModel addJobViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                addJobViewModel.Message = "Please provide all of the required information";
+                addJobViewModel.isError = true;
+                return View("Add", addJobViewModel);
 
-            return View();
+            }
+            else
+            {
+                Job newJob = new Job(addJobViewModel.Name, addJobViewModel.EmployerId);
+                context.Jobs.Add(newJob);
+                context.SaveChanges();
+            }
+            return Redirect("/Job");
         }
 
         public IActionResult Delete()

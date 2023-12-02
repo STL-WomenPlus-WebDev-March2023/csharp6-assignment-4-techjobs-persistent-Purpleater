@@ -23,4 +23,6 @@
 
 -- __ANSWER__
 
--- SOMETHING SOMETHING MANY-TO-MANY RELATIONSHIP
+-- SELECT name, skills
+-- FROM techjobs.jobs
+-- INNER JOIN job ON skills.Id = job.id
